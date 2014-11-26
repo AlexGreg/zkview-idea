@@ -1,0 +1,19 @@
+{
+    parserClass = "com.zkview.parser.ZKParser"
+
+    extends = "com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+    psiClassPrefix = "ZK"
+    psiImplClassSuffix = "Impl"
+    psiPackage = "com.zkview.psi"
+    psiImplPackage = "com.zkview.psi.impl"
+
+    elementTypeHolderClass = "com.zkview.psi.ZKTypes"
+    elementTypeClass = "com.zkview.psi.ZKElementType"
+    tokenTypeClass = "com.zkview.psi.ZKTokenType"
+}
+
+zkFile ::= item_*
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY
